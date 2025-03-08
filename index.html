@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumi Escrita</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div id="controls">
+        <label for="bgImage">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm7 3a3 3 0 1 0 3 3 3 3 0 0 0-3-3zm-5.5 12h11l-3.5-4.5-2.5 3-1.5-2z"/></svg>
+        </label>
+        <input type="file" id="bgImage" accept="image/*">
+        
+        <label for="bgMusic">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3z"/></svg>
+        </label>
+        <input type="file" id="bgMusic" accept="audio/*">
+        
+        <label id="toggleSound">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9zm13.5 3a3.5 3.5 0 0 1-1.5 2.95v-5.9a3.5 3.5 0 0 1 1.5 2.95zm2.5 0a6 6 0 0 1-2.5 4.9v-9.8a6 6 0 0 1 2.5 4.9z"/></svg>
+        </label>
+        
+        <button class="button" onclick="saveText()">Salvar</button>
+        <button class="button" onclick="savePDF()">Salvar em PDF</button>
+        <button class="button" onclick="toggleBold()">Negrito</button>
+        <button class="button" onclick="toggleItalic()">Itálico</button>
+        <button class="button" onclick="toggleUnderline()">Sublinhado</button>
+        <select class="button" id="fontSize" onchange="changeFontSize()">
+            <option value="18">Tamanho: 18px</option>
+            <option value="22">Tamanho: 22px</option>
+            <option value="26">Tamanho: 26px</option>
+        </select>
+        <input type="color" id="fontColor" onchange="changeFontColor()" title="Escolher cor do texto">
+    </div>
+    <div id="editor-container">
+        <textarea id="editor" placeholder="Escreva aqui..."></textarea>
+    </div>
+    <div id="thumbnail-container"></div>
+    <audio id="music" loop></audio>
+    <script src="script.js"></script>
+</body>
+</html>
